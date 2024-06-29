@@ -9,6 +9,8 @@ import EwasteCollectionForm from "../components/EwasteCollectionForm";
 import UserDashboard from "../components/UserDashboard";
 import SideBar from "../components/sideBar";
 import UserSettings from "../components/userSettings";
+import CollectionRequest from "../components/CollectionRequset";
+import RequestHistory from "../components/RequestHistory";
 import LocateFacilityPage from "./locate_facility";
 import "./userSide.css";
 
@@ -74,7 +76,10 @@ const UserSide = () => {
           {
                imagePath: settingsIcon,
                optionText: "Settings",
-          },
+          },{
+      imagePath: settingsIcon,
+      optionText: "History",
+    },
           {
                imagePath: settingsIcon,
                optionText: "E-waste Collection",
@@ -100,7 +105,8 @@ const UserSide = () => {
                          <span>{activeTab}</span>
                     </div>
                     {activeTab === "Dashboard" && <UserDashboard />}
-                    {activeTab === "Locate" && <LocateFacilityPage />}
+                    {activeTab === "Locate" && <LocateFacilityPage />}    
+                    {activeTab === "History" && <RequestHistory />}
                     {activeTab === "Settings" && (
                          <UserSettings userData={userData} />
                     )}
