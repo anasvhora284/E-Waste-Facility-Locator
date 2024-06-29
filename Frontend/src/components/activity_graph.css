@@ -1,0 +1,107 @@
+.ActivityGraphMainDiv {
+  height: auto;
+  width: auto;
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  margin-top: 2%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--poppins);
+}
+
+.GraphHeading {
+  margin-left: 15px;
+  width: 97%;
+  border-bottom: 2px solid #f2f7ff;
+}
+
+.GraphHeading span {
+  font-family: var(--poppins);
+  font-size: medium;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+}
+
+.YandBarDiv {
+  width: 100%;
+  display: flex;
+  align-items: flex-end; /* Align Y-axis labels to the bottom */
+}
+
+.XandBarDiv {
+  position: relative;
+}
+
+.y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-right: 10px;
+  gap: 20px;
+}
+
+.month-label {
+  width: 60px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.MainBarContainere {
+  max-width: 80vw;
+  display: flex;
+  gap: 18px;
+}
+
+.line-vertical-wrapper {
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: flex-end;
+}
+
+.MainBarContainere .ProgressBar > div {
+  border-radius: 50px;
+}
+
+.MainBarContainere .ProgressBar > div > div {
+  height: 15em !important;
+  background-color: #f2f7ff;
+}
+
+.x-axis {
+  display: flex;
+  justify-content: space-around;
+  width: 100%; /* Make sure X-axis labels span the entire width */
+  margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+  .ActivityGraphMainDiv {
+    width: 90%;
+    position: relative;
+  }
+
+  .YandBarDiv {
+    align-items: center;
+  }
+
+  .y-axis {
+    font-size: small;
+  }
+
+  .ProgressBar {
+    max-height: 80%;
+    max-width: 10px;
+  }
+
+  .line-vertical-wrapper {
+    align-items: center;
+  }
+
+  .MainBarContainere {
+    overflow-x: auto;
+  }
+}

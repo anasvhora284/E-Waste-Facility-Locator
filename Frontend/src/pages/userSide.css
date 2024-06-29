@@ -1,0 +1,39 @@
+.UserSide {
+  background-color: #141b2b;
+  display: flex;
+  position: relative;
+  height: 100vh;
+}
+
+.SideBarContainer {
+  max-width: 20%;
+  margin-right: 3%;
+}
+
+.TabHeading > span {
+  font-size: 2em;
+  color: white;
+}
+
+.TabHeading {
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 10vh;
+  width: 75vw;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(
+    90deg,
+    #141b2b 5%,
+    #2aadc3 34.38%,
+    #00d64f 65.63%,
+    #141b2b 95.69%
+  );
+  border-image-slice: 10%;
+}
+
+@media (max-width: 767px) {
+  .MainContent {
+    overflow: auto;
+    max-width: 80vw;
+  }
+}

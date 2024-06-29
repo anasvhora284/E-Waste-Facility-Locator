@@ -1,0 +1,103 @@
+@import "../environment";
+
+.LoginMainDiv {
+  background: url(../assets/Images/HandGrowingPlantBG.png) no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  padding-right: 10%;
+  padding-left: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: var(--smooch-sans);
+  color: white;
+}
+
+.Texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.WelcomeText {
+  font-weight: bold;
+  color: #fff;
+  font-size: 5em;
+}
+
+.Loginfields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 10%;
+}
+
+.SignupRedirectDiv {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.ClickHereLinkText {
+  position: relative;
+  margin-top: 5%;
+}
+
+.ClickHereLinkText > a {
+  color: #fff;
+  font-size: small;
+  font-family: var(--poppins);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.ClickHereLinkText::before {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 1px;
+  background-color: #f0edff;
+  position: absolute;
+  left: -165px;
+  top: 10px;
+  opacity: 0.5;
+}
+
+.ClickHereLinkText::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 1px;
+  background-color: #f0edff;
+  position: absolute;
+  right: -165px;
+  top: 10px;
+  opacity: 0.5;
+}
+
+@media (max-width: 767px) {
+  .LoginMainDiv {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .ClickHereLinkText::before {
+    width: 150px;
+    background-color: white;
+    left: -165px;
+    opacity: 1;
+  }
+
+  .ClickHereLinkText::after {
+    width: 90px;
+    background-color: white;
+    right: -95px;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,11 @@
+.InfoCardsDiv {
+  display: flex;
+  gap: 3%;
+}
+
+@media (max-width: 767px) {
+  .InfoCardsDiv {
+    flex-direction: column;
+    max-width: 70vw;
+  }
+}

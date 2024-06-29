@@ -1,0 +1,82 @@
+.AdminSettingsMainDiv {
+  font-family: var(--poppins);
+}
+
+.MainSettingsDiv {
+  margin-top: 4%;
+  display: flex;
+  gap: 20px;
+}
+
+.fourinputcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.InputFields {
+  width: 300px;
+  min-width: 150px !important;
+}
+
+.InputFields img {
+  display: none !important;
+}
+
+.InputFields > div {
+  border-radius: 12px !important;
+}
+
+label {
+  padding-left: 10px;
+  color: #999999;
+}
+
+.LockSettingsMainDiv {
+  width: 30%;
+  height: 17.2em;
+}
+
+.Two_FA_Tile {
+  width: 100%;
+  height: 9rem;
+}
+
+.Two_FA_Tile .toggleSwitch {
+  margin-top: 0px !important;
+}
+
+.pass_fields_Container {
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.pass_fields_Container .InputFields {
+  width: 100%;
+}
+
+.pass_fields_Container .InputFields input {
+  width: 100%;
+}
+
+.ChangepassTile {
+  border-radius: 10px;
+}
+
+.ButtonDivMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+}
+
+.Buttons_Containers {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .LockSettingsMainDiv {
+    width: 70vw;
+  }
+}
