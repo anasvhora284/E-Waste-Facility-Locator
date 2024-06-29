@@ -8,6 +8,7 @@ import UserDashboard from "../components/UserDashboard";
 import LocateFacilityPage from "./locate_facility";
 import UserSettings from "../components/userSettings";
 import CollectionRequest from "../components/CollectionRequset";
+import RequestHistory from "../components/RequestHistory";
 
 const UserSide = () => {
   const [activeTab, setActiveTab] = useState("Dashboard");
@@ -29,6 +30,10 @@ const UserSide = () => {
       imagePath: settingsIcon,
       optionText: "Settings",
     },
+    {
+      imagePath: settingsIcon,
+      optionText: "History",
+    },
   ];
 
   return (
@@ -47,6 +52,7 @@ const UserSide = () => {
         {activeTab === "Dashboard" && <UserDashboard />}
         {activeTab === "Locate" && <CollectionRequest />}
         {activeTab === "Settings" && <UserSettings />}
+        {activeTab === "History" && <RequestHistory />}
       </div>
     </div>
   );
