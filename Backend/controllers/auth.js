@@ -6,7 +6,7 @@ const User = require("../models/user.js");
 require("dotenv").config();
 
 const register = async (req, res, next) => {
-     const { name, phone, username, email, password } = req.body;
+     const { name, phone, username, email, password, role } = req.body;
 
      try {
           const hashedPassword = await bcrypt.hash(password, 10);
@@ -16,6 +16,7 @@ const register = async (req, res, next) => {
                username,
                email,
                password: hashedPassword,
+               role: role || "user",
           });
           await newUser.save();
           res.json({ message: "Registration successful" });
@@ -35,13 +36,19 @@ const login = async (req, res, next) => {
 
           const passwordMatch = await user.comparePassword(password);
           if (passwordMatch) {
-               return res.status(401).json({ message: "Incorrect password" });
+               return res
+                    .status(401)
+                    .json({ message: "Incorrect Email or password" });
           }
 
-          const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
-               expiresIn: "30d",
-          });
-          res.json({ token });
+          const token = jwt.sign(
+               { userId: user._id, role: user.role },
+               process.env.SECRET_KEY,
+               {
+                    expiresIn: "30d",
+               }
+          );
+          res.json({ token, role: user.role });
      } catch (error) {
           next(error);
      }

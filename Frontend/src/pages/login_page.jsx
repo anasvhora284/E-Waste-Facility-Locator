@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import LockIcon from "../assets/Images/LockIcon.svg";
 import userIcon from "../assets/Images/UsernIcon.svg";
 import Field from "../components/InputFields";
+import validateToken from "../components/ValidToken/ValidateToken";
 import CustomButton from "../components/form_button";
 import NavBar from "../components/navbar";
 import "./login_page.css";
@@ -66,16 +67,23 @@ const LoginPage = () => {
             headers: headers,
           }
         );
-
-        if (response.status === 200) {
-          resolve(
-            setTimeout(() => {
-              navigate("/Userside");
-            }, 2000)
-          );
-        } else {
-          reject("Login Failed");
-        }
+                    if (response.status >= 200 && response.status < 300) {
+                         console.log(response.data);
+                         const authToken = response.data.token;
+                         const role = response.data.role;
+                         localStorage.setItem("Authorization", authToken);
+                         localStorage.setItem("UserRole", role);
+                         if (await validateToken()) {
+                              role == "user"
+                                   ? navigate("/Userside")
+                                   : navigate("/Adminside");
+                         } else {
+                              console.log("/login");
+                         }
+                         resolve(response.data);
+                    } else {
+                         reject("Login Failed");
+                    }
 
         console.log(response.status);
         console.log("HTTP POST Request Response:", response.data);
