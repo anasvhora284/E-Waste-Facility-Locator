@@ -38,7 +38,6 @@ const LoginPage = () => {
   };
 
   const handleLogin = () => {
-    navigate("/Userside");
     toast.promise(handleHttpLogin, {
       pending: "Processing...",
       success: "Login Successful",
@@ -67,23 +66,21 @@ const LoginPage = () => {
             headers: headers,
           }
         );
-                    if (response.status >= 200 && response.status < 300) {
-                         console.log(response.data);
-                         const authToken = response.data.token;
-                         const role = response.data.role;
-                         localStorage.setItem("Authorization", authToken);
-                         localStorage.setItem("UserRole", role);
-                         if (await validateToken()) {
-                              role == "user"
-                                   ? navigate("/Userside")
-                                   : navigate("/Adminside");
-                         } else {
-                              console.log("/login");
-                         }
-                         resolve(response.data);
-                    } else {
-                         reject("Login Failed");
-                    }
+        if (response.status >= 200 && response.status < 300) {
+          console.log(response.data);
+          const authToken = response.data.token;
+          const role = response.data.role;
+          localStorage.setItem("Authorization", authToken);
+          localStorage.setItem("UserRole", role);
+          if (await validateToken()) {
+            role == "user" ? navigate("/Userside") : navigate("/Adminside");
+          } else {
+            console.log("/login");
+          }
+          resolve(response.data);
+        } else {
+          reject("Login Failed");
+        }
 
         console.log(response.status);
         console.log("HTTP POST Request Response:", response.data);

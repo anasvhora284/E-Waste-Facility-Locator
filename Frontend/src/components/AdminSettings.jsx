@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Field from "./InputFields";
 import ProfilePic from "./ProfilePic";
@@ -5,7 +6,7 @@ import "./AdminSettings.css";
 import LockTile from "./LockTile";
 import CustomButton from "./form_button";
 
-const AdminSettings = () => {
+const AdminSettings = ({ userData }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
@@ -79,7 +80,7 @@ const AdminSettings = () => {
   return (
     <div className="AdminSettingsMainDiv">
       <div className="AdminProfilePicDiv">
-        <ProfilePic />
+        <ProfilePic name={userData.name} />
       </div>
       <div className="MainSettingsDiv">
         <div className="fourinputcontainer">
@@ -89,7 +90,11 @@ const AdminSettings = () => {
             <Field
               placeholder={"Name"}
               type={"Text"}
-              value={name}
+              value={
+                userData.Facilityname
+                  ? userData.Facilityname
+                  : "E_Waste_Facility_Name"
+              }
               onChange={handleNameChange}
               isValid={nameValid}
               validationMessage={"Can't be an empty."}
@@ -102,7 +107,7 @@ const AdminSettings = () => {
             <Field
               placeholder={"Name"}
               type={"Text"}
-              value={name}
+              value={userData.name}
               onChange={handleNameChange}
               isValid={nameValid}
               validationMessage={"Can't be an empty."}
@@ -114,7 +119,7 @@ const AdminSettings = () => {
 
             <Field
               type={"Text"}
-              value={username}
+              value={userData.username}
               placeholder={"Username"}
               onChange={(e) => {
                 setUsername(e.target.value);
@@ -131,7 +136,7 @@ const AdminSettings = () => {
             <Field
               placeholder={"Email"}
               type={"Email"}
-              value={email}
+              value={userData.email}
               onChange={(e) => {
                 setEmail(e.target.value);
                 setEmailValid(isEmailValid(e.target.value));
@@ -154,7 +159,7 @@ const AdminSettings = () => {
             <Field
               placeholder={"Phone"}
               type={"Number"}
-              value={phone}
+              value={userData.phone}
               onChange={handlePhoneChange}
               isValid={phoneValid}
               validationMessage="Enter a valid phone number"

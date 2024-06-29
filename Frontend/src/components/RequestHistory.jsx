@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { MenuItem, FormControl, Select, Box, Typography } from "@mui/material";
 import "./RequestHistory.css";
