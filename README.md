@@ -70,11 +70,10 @@ If you encounter issues, check the following:
 - Ensure there are no port conflicts.
 - Review error messages in the terminal for clues.
 
-For further assistance, please refer to the [documentation](docs/) or contact support.
 
 ## Contributing
 
-Contributions to the E-Waste Facility Locator project are welcome. Please refer to the [contributing guidelines](CONTRIBUTING.md) for more information.
+Contributions to the E-Waste Facility Locator project are welcome.
 
 ## License
 
